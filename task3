@@ -1,0 +1,78 @@
+#include <iostream> 
+using namespace std;
+
+
+
+int main() {
+
+	setlocale(LC_ALL, "UKR");
+
+	int n;
+	cout << "Введіть кількість рядків та стовпців матриць А та В:";
+	cin >> n;
+	
+	int A[n][n];
+	int B[n][n];
+
+	for (int i = 0; i < n; i++) {
+		for (int j = 0; j < n; j++) {
+			cout << "Введіть якесь значення для елементу матриці А:";
+			cin >> A[i][j];
+		}
+	}
+
+	for (int i = 0; i < n; i++) {
+		for (int j = 0; j < n; j++) {
+			cout << "Введіть якесь значення для елементу матриці B:";
+			cin >> B[i][j];
+		}
+	}
+
+	long AB[n][n];
+	for (int i = 0; i < n; ++i) { 
+		for (int j = 0; j < n; ++j) { 
+			for (int k = 0; k < n; ++k) { 
+				AB[i][j] += A[i][k] * B[k][j];
+			}
+		}
+	}
+
+	long BA[n][n];
+	for (int i = 0; i < n; ++i) {
+		for (int j = 0; j < n; ++j) {
+			for (int k = 0; k < n; ++k) {
+				BA[i][j] += B[i][k] * A[k][j];
+			}
+		}
+	}
+
+	cout << endl << "Добуток матриці А та В:\n";
+	for (int i = 0; i < n; i++) {
+		for (int j = 0; j < n; j++) {
+			cout << AB[i][j] << endl;
+		}
+	}
+
+	cout << endl << "Добуток матриці B та A:\n";
+	for (int i = 0; i < n; i++) {
+		for (int j = 0; j < n; j++) {
+			cout << BA[i][j] << endl;
+		}
+	}
+
+	long AB_BA[n][n];
+	for (int i = 0; i < n; i++) {
+		for (int j = 0; j < n; j++) {
+			AB_BA[i][j] = AB[i][j] - BA[i][j];
+		}
+	}
+
+	cout << endl << "Різниця добутків матриць А та В(АВ-ВА):\n";
+	for (int i = 0; i < n; i++) {
+		for (int j = 0; j < n; j++) {
+			cout << AB_BA[i][j] << endl;
+		}
+	}
+
+	return 0;
+} 
