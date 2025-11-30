@@ -1,0 +1,34 @@
+#include <iostream> 
+#include <vector>
+#include <algorithm>
+using namespace std;
+
+int main() {
+
+	setlocale(LC_ALL, "UKR");
+
+	int n;
+	cout << "Введіть кількість елементів масиву А:";
+	cin >> n;
+	
+	int A[n];
+	for (int i = 0; i < n; i++) {
+		cout << endl << "Введіть якийсь значення для елементу масиву:";
+		cin >> A[i];
+	}
+
+	int T;
+	cout << endl << "Введіть значення номеру для певного елемента Т, від якого ми будемо висти відлік:";
+	cin >> T;
+
+	vector<int> B;
+	for (int i = 0; i < n; i++) {
+		if (i > T) {
+			B.push_back(A[i]);
+		}
+	}
+	
+	cout << endl << "Найбільше число правіше від елементу Т = " << *max_element(B.begin(), B.end());
+
+	return 0;
+}
