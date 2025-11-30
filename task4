@@ -1,0 +1,45 @@
+#include <iostream> 
+using namespace std;
+
+
+
+int main() {
+
+	setlocale(LC_ALL, "UKR");
+
+	int n;
+	cout << "Введіть кількість рядків та стовпців матриці А:";
+	cin >> n;
+	
+	double A[n][n];
+
+	for (int i = 0; i < n; i++) {
+		for (int j = 0; j < n; j++) {
+			cout << "Введіть якесь значення для елементу матриці А:";
+			cin >> A[i][j];
+		}
+	}
+
+	int str_i, str_j;
+	for (int i = 0; i < n; i++) {
+		for (int j = 0; j < n; j++) {
+			if (A[i][j] < 0) {
+				str_i = i;
+			}
+		}
+	}
+
+	for (int i = 0; i < n; i++) {
+		A[str_i][i] /= 2;
+	}
+
+	cout << endl << "Наша змінена матриця:\n";
+	for (int i = 0; i < n; i++) {
+		for (int j = 0; j < n; j++) {
+			cout << A[i][j];
+		}
+			cout << endl;
+	}
+
+	return 0;
+} 
